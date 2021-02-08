@@ -1,0 +1,24 @@
+{
+  "contacts": [
+    {
+      "name": "Redux",
+      "number": "159753",
+      "id": 3
+    },
+    {
+      "name": "JavaScript",
+      "number": "357951",
+      "id": 4
+    },
+    {
+      "name": "HTML",
+      "number": "123654789",
+      "id": 5
+    },
+    {
+      "name": "CSS",
+      "number": "123548",
+      "id": 6
+    }
+  ]
+}
