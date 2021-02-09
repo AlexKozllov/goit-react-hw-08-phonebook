@@ -1,5 +1,6 @@
 import { combineReducers, createReducer } from "@reduxjs/toolkit";
 import {
+  logoutError,
   logoutSuccess,
   signInError,
   signInSuccess,
@@ -8,33 +9,33 @@ import {
 } from "../actions/authActions";
 
 const initialUserState = {
-  name: "",
-  email: "",
-  password: "",
+  name: null,
+  email: null,
 };
 
 const user = createReducer(
   {},
   {
-    [signUpSuccess]: (state, action) => ({ ...action.payload.user }),
-    [signInSuccess]: (state, action) => ({ ...action.payload.user }),
-    [logoutSuccess]: (state, action) => ({ ...initialUserState }),
+    [signUpSuccess]: (state, action) => action.payload.user,
+    [signInSuccess]: (state, action) => action.payload.user,
+    [logoutSuccess]: (state, action) => initialUserState,
   }
 );
 
-const token = createReducer("", {
+const token = createReducer(null, {
   [signUpSuccess]: (state, action) => action.payload.token,
   [signInSuccess]: (state, action) => action.payload.token,
-  [logoutSuccess]: (state, action) => "",
+  [logoutSuccess]: (state, action) => null,
 });
 
-const error = createReducer(
-  {},
-  {
-    [signUpError]: (state, action) => ({ ...action.payload.token }),
-    [signInError]: (state, action) => ({ ...action.payload.token }),
-  }
-);
+const error = createReducer(null, {
+  [signUpError]: (state, action) => action.payload,
+  [signUpSuccess]: (state, action) => null,
+  [signInError]: (state, action) => action.payload,
+  [signInSuccess]: (state, action) => null,
+  [logoutError]: (state, action) => action.payload,
+  [logoutSuccess]: (state, action) => null,
+});
 
 const authRedusers = combineReducers({
   user,

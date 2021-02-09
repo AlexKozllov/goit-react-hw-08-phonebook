@@ -8,6 +8,7 @@ const UserMenu = () => {
   const dispatch = useDispatch();
 
   const handleLogout = (e) => {
+    console.log("curentToken", curentToken);
     dispatch(logoutUser(curentToken));
   };
 

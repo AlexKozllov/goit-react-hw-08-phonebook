@@ -9,9 +9,9 @@ import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 
 const authPersistConfig = {
-  key: authRedusers,
+  key: "auth",
   storage,
-  wtihelist: [authRedusers],
+  whitelist: ["token"],
 };
 
 const rootReducer = combineReducers({

@@ -8,9 +8,13 @@ const signInRequest = createAction("@phBook/signInRequest");
 const signInSuccess = createAction("@phBook/signInSuccess");
 const signInError = createAction("@phBook/signInErrror");
 
-const logoauRequest = createAction("@phBook/logoauRequest");
+const logoautRequest = createAction("@phBook/logoauRequest");
 const logoutSuccess = createAction("@phBook/logoauSuccess");
 const logoutError = createAction("@phBook/logoauErrror");
+
+const refreshUserRequest = createAction("@phBook/refreshUserRequest");
+const refreshUserSuccess = createAction("@phBook/refreshUserSuccess");
+const refreshUserError = createAction("@phBook/refreshUserErrror");
 
 export {
   signUpRequest,
@@ -19,7 +23,10 @@ export {
   signInRequest,
   signInSuccess,
   signInError,
-  logoauRequest,
+  logoautRequest,
   logoutSuccess,
   logoutError,
+  refreshUserRequest,
+  refreshUserSuccess,
+  refreshUserError,
 };

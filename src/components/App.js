@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import NavigationsLinks from "./navigations/NavigationsLinks";
 import NavigationsRouters from "./navigations/NavigationsRouters";
 import { BrowserRouter } from "react-router-dom";
 import UserMenu from "./userMenu/UserMenu";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { refreshUser } from "../redux/operations/authOperation";
 
 const App = () => {
   const isLogIn = useSelector((state) => state.auth.token);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, []);
   return (
     <BrowserRouter>
       <NavigationsLinks />

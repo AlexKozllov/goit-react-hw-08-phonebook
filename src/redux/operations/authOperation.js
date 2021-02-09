@@ -2,17 +2,21 @@ import {
   postSignInUser,
   postSignUpUser,
   postLogoutUser,
+  getRefreshUser,
 } from "../../servises/fatchToDB";
 import {
   logoutError,
   logoutSuccess,
-  logoauRequest,
+  logoautRequest,
   signInError,
   signInRequest,
   signInSuccess,
   signUpError,
   signUpRequest,
   signUpSuccess,
+  refreshUserRequest,
+  refreshUserSuccess,
+  refreshUserError,
 } from "../actions/authActions";
 
 const signUpUser = (user) => (dispatch) => {
@@ -20,7 +24,7 @@ const signUpUser = (user) => (dispatch) => {
 
   postSignUpUser(user)
     .then((data) => {
-      console.log("data", data);
+      // console.log("data", data);
       dispatch(signUpSuccess(data));
     })
     .catch((error) => dispatch(signUpError(error)));
@@ -31,20 +35,39 @@ const signInUser = (user) => (dispatch) => {
 
   postSignInUser(user)
     .then((data) => {
-      console.log("data", data);
+      // console.log("data", data);
       dispatch(signInSuccess(data));
     })
-    .catch((error) => dispatch(signInError(error)));
+    .catch((error) => {
+      console.log("error554654654", error);
+
+      dispatch(signInError(error));
+    });
 };
 
-const logoutUser = (token) => (dispatch) => {
-  dispatch(logoauRequest());
+const logoutUser = () => (dispatch) => {
+  dispatch(logoautRequest());
 
-  postLogoutUser(token)
-    .then((data) => {
-      console.log("data", data);
-      dispatch(logoutSuccess(data));
+  postLogoutUser()
+    .then(() => {
+      dispatch(logoutSuccess());
     })
     .catch((error) => dispatch(logoutError(error)));
 };
-export { signUpUser, signInUser, logoutUser };
+
+const refreshUser = () => (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+
+  if (persistedToken) {
+    dispatch(refreshUserRequest());
+
+    getRefreshUser(persistedToken)
+      .then(() => {
+        dispatch(refreshUserSuccess());
+      })
+      .catch((error) => dispatch(refreshUserError(error)));
+  }
+};
+export { signUpUser, signInUser, logoutUser, refreshUser };
