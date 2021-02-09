@@ -8,7 +8,7 @@ import s from "./contactForm.module.css";
 import shiftAlert from "../animation/shiftAlert.module.css";
 
 import { addContact } from "../../redux/operations/phBookOperations";
-import { getListContacts } from "../../redux/contactsSelectors";
+import { getListContacts } from "../../redux/selectors/contactsSelectors";
 
 const InitialState = {
   name: "",

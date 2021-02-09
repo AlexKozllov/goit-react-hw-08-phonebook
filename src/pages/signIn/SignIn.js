@@ -1,41 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { signInUser } from "../../redux/operations/authOperation";
 
-// const initialState = {
-//   email: "",
-//   password: "",
-// };
+const initialState = {
+  email: "",
+  password: "",
+};
 
 const SignIn = () => {
-  //   const [dataSignUp, setDataSignUp] = useState(initialState);
+  const dispatch = useDispatch();
 
-  //   const handleChange = (e) => {
-  //     const { name, value } = e.target;
-  //   };
+  const [dataSignIn, setDataSignIn] = useState(initialState);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDataSignIn({ ...dataSignIn, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(signInUser({ ...dataSignIn }));
+  };
 
   return (
-    <h2>SignIn</h2>
-    //     <div>
-    //       <form>
-    //         <label>
-    //           E-mail
-    //           <input
-    //             type="text"
-    //             name="email"
-    //             value={"sss"}
-    //             onChange={handleChange}
-    //           />
-    //         </label>
-    //         <label>
-    //           Password
-    //           <input
-    //             type="text"
-    //             name="password"
-    //             value={"sss"}
-    //             onChange={handleChange}
-    //           />
-    //         </label>
-    //       </form>
-    //     </div>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          E-mail
+          <input
+            type="text"
+            name="email"
+            value={dataSignIn.email}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="password"
+            name="password"
+            value={dataSignIn.value}
+            onChange={handleChange}
+          />
+        </label>
+        <button type="submit">SignUp</button>
+      </form>
+    </div>
   );
 };
 

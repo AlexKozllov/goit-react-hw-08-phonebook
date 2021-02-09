@@ -1,9 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
 
-const signUpRequest = createAction("@phBook/signUpRequest");
-const signUpSuccess = createAction("@phBook/signUpSuccess");
-const signUpError = createAction("@phBook/signUpErrror");
-
 const addContactRequest = createAction("@phBook/addRequest");
 const addContactSuccess = createAction("@phBook/addSuccess");
 const addContactError = createAction("@phBook/addErrror");
@@ -19,9 +15,6 @@ const removeContactError = createAction("@phBook/removeErrror");
 const setFilter = createAction("@phBook/setFilter");
 
 export {
-  signUpRequest,
-  signUpSuccess,
-  signUpError,
   addContactRequest,
   addContactSuccess,
   addContactError,

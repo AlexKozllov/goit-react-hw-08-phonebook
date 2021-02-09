@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { signUpContact } from "../../redux/operations/phBookOperations";
+import { signUpUser } from "../../redux/operations/authOperation";
+
+// import { postSignUpUser } from "../../servises/fatchToDB";
+// import { signUpUser } from "../../redux/operations/phBookOperations";
 
 const initialState = {
   name: "",
@@ -20,7 +23,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signUpContact({ ...dataSignUp }));
+    dispatch(signUpUser({ ...dataSignUp }));
   };
   return (
     <div>

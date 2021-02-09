@@ -1,24 +1,18 @@
-import React, { useEffect } from "react";
-import { CSSTransition } from "react-transition-group";
-import { useDispatch, useSelector } from "react-redux";
-import { getContactsList } from "../redux/operations/phBookOperations";
-import { getLoading } from "../redux/contactsSelectors";
+import React from "react";
 
-import ContactForm from "./contactForm/ContactForm";
-import ContactList from "./contactList/ContactList";
-
-import s from "./app.module.css";
-
-import shiftAppear from "./animation/shiftAppear.module.css";
-import ModalLoader from "./loader/ModalLoader";
 import NavigationsLinks from "./navigations/NavigationsLinks";
 import NavigationsRouters from "./navigations/NavigationsRouters";
 import { BrowserRouter } from "react-router-dom";
+import UserMenu from "./userMenu/UserMenu";
+import { useSelector } from "react-redux";
 
 const App = () => {
+  const isLogIn = useSelector((state) => state.auth.token);
+
   return (
     <BrowserRouter>
       <NavigationsLinks />
+      {isLogIn && <UserMenu />}
       <NavigationsRouters />
     </BrowserRouter>
   );

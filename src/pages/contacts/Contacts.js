@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useDispatch, useSelector } from "react-redux";
-import { getContactsList } from "../../redux/operations/phBookOperations";
-import { getLoading } from "../../redux/contactsSelectors";
 
 import s from "../../components/app.module.css";
 
@@ -10,6 +8,8 @@ import shiftAppear from "../../components/animation/shiftAppear.module.css";
 import ContactForm from "../../components/contactForm/ContactForm";
 import ContactList from "../../components/contactList/ContactList";
 import ModalLoader from "../../components/loader/ModalLoader";
+import { getLoading } from "../../redux/selectors/contactsSelectors";
+import { getContactsList } from "../../redux/operations/phBookOperations";
 
 const Contacts = () => {
   const dispatch = useDispatch();

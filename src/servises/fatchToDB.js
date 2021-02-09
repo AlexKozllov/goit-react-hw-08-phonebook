@@ -2,9 +2,27 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://goit-phonebook-api.herokuapp.com/";
 
-const postSignUpContact = async (contacts) => {
+const postSignUpUser = async (user) => {
   try {
-    return await axios.post("/users/signup", contacts).then(({ data }) => data);
+    return await axios.post("/users/signup", user).then(({ data }) => data);
+  } catch (error) {
+    console.log("error", { error });
+    return error;
+  }
+};
+
+const postSignInUser = async (user) => {
+  try {
+    return await axios.post("/users/login", user).then(({ data }) => data);
+  } catch (error) {
+    console.log("error", { error });
+    return error;
+  }
+};
+
+const postLogoutUser = async (token) => {
+  try {
+    return await axios.post("/users/logout", token).then(({ data }) => data);
   } catch (error) {
     console.log("error", { error });
     return error;
@@ -38,4 +56,11 @@ const removeContact = async (id) => {
   }
 };
 
-export { postContacts, getContacts, removeContact, postSignUpContact };
+export {
+  postContacts,
+  getContacts,
+  removeContact,
+  postSignUpUser,
+  postSignInUser,
+  postLogoutUser,
+};

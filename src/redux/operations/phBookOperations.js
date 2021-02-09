@@ -1,5 +1,4 @@
 import {
-  postSignUpContact,
   postContacts,
   getContacts,
   removeContact,
@@ -14,20 +13,7 @@ import {
   removeContactError,
   removeContactSuccess,
   removeContactRequest,
-  signUpRequest,
-  signUpSuccess,
-  signUpError,
 } from "../actions/phBookActions";
-
-const signUpContact = (contacts) => (dispatch) => {
-  dispatch(signUpRequest());
-
-  postSignUpContact(contacts)
-    .then((data) => {
-      dispatch(signUpSuccess(data));
-    })
-    .catch((error) => dispatch(signUpError(error)));
-};
 
 const addContact = (contacts) => (dispatch) => {
   dispatch(addContactRequest());
@@ -59,4 +45,4 @@ const removeContactFromList = (id) => (dispatch) => {
     .catch((error) => dispatch(removeContactError(error)));
 };
 
-export { addContact, getContactsList, removeContactFromList, signUpContact };
+export { addContact, getContactsList, removeContactFromList };

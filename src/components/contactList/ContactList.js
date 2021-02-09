@@ -9,12 +9,11 @@ import shiftAnimation from "../animation/shiftAnimation.module.css";
 import scaleAnimation from "../animation/scaleAnimation.module.css";
 
 import { removeContactFromList } from "../../redux/operations/phBookOperations";
-
 import {
   getFilter,
-  getVisibleContacts,
   getListContacts,
-} from "../../redux/contactsSelectors";
+  getVisibleContacts,
+} from "../../redux/selectors/contactsSelectors";
 
 const ContactList = () => {
   const dispatch = useDispatch();

@@ -1,5 +1,10 @@
 import { combineReducers, createReducer } from "@reduxjs/toolkit";
 import {
+  signUpError,
+  signUpRequest,
+  signUpSuccess,
+} from "../actions/authActions";
+import {
   addContactRequest,
   addContactSuccess,
   addContactError,
@@ -10,17 +15,7 @@ import {
   removeContactSuccess,
   removeContactError,
   setFilter,
-  signUpSuccess,
-  signUpRequest,
-  signUpError,
 } from "../actions/phBookActions";
-
-const user = createReducer(
-  {},
-  {
-    [signUpSuccess]: (state, action) => action.payload,
-  }
-);
 
 const items = createReducer([], {
   [addContactSuccess]: (state, action) => [action.payload, ...state],
@@ -50,4 +45,4 @@ const loading = createReducer(false, {
 
 const contactsReusers = combineReducers({ items, filter });
 
-export { contactsReusers, loading, user };
+export { contactsReusers, loading };
