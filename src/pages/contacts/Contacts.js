@@ -10,12 +10,20 @@ import ContactList from "../../components/contactList/ContactList";
 import ModalLoader from "../../components/loader/ModalLoader";
 import { getLoading } from "../../redux/selectors/contactsSelectors";
 import { getContactsList } from "../../redux/operations/phBookOperations";
+import { useHistory } from "react-router-dom";
 
 const Contacts = () => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => !!state.auth.token);
   const isLoading = useSelector((state) => getLoading(state));
 
+  const history = useHistory();
+
   useEffect(() => {
+    if (!isAuthenticated) {
+      history.replace("/login");
+      return;
+    }
     dispatch(getContactsList());
   }, []);
 

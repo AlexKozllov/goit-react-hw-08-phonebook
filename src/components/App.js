@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "../redux/operations/authOperation";
 
 const App = () => {
-  const isLogIn = useSelector((state) => state.auth.token);
+  const isAuthenticated = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <NavigationsLinks />
-      {isLogIn && <UserMenu />}
+      {isAuthenticated && <UserMenu />}
       <NavigationsRouters />
     </BrowserRouter>
   );
