@@ -2,23 +2,19 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://goit-phonebook-api.herokuapp.com/";
 
-// const token = {
-//   unSet() {
-//     axios.defaults.headers.common.Authorization = "";
-//   },
-// };
-
-const tokenSet = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-const tokenUnSet = () => {
-  axios.defaults.headers.common.Authorization = "";
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unSet() {
+    axios.defaults.headers.common.Authorization = "";
+  },
 };
 
 const postSignUpUser = async (user) => {
   try {
     return await axios.post("/users/signup", user).then(({ data }) => {
-      tokenSet(data.token);
+      token.set(data.token);
       return data;
     });
   } catch (error) {
@@ -31,7 +27,7 @@ const postSignInUser = async (user) => {
   try {
     return await axios.post("/users/login", user).then(({ data }) => {
       console.log("data", data);
-      tokenSet(data.token);
+      token.set(data.token);
       return data;
     });
   } catch (error) {
@@ -43,7 +39,7 @@ const postSignInUser = async (user) => {
 const postLogoutUser = async () => {
   try {
     return await axios.post("/users/logout").then((data) => {
-      tokenUnSet(data);
+      token.unSet(data);
     });
   } catch (error) {
     console.log("error", { error });
@@ -52,9 +48,9 @@ const postLogoutUser = async () => {
 };
 
 const getRefreshUser = async (persistedToken) => {
-  tokenSet(persistedToken);
+  token.set(persistedToken);
   try {
-    return await axios.post("/users/current").then((data) => {
+    return await axios.get("/users/current").then(({ data }) => {
       return data;
     });
   } catch (error) {

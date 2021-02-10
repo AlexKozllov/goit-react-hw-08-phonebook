@@ -64,8 +64,8 @@ const refreshUser = () => (dispatch, getState) => {
     dispatch(refreshUserRequest());
 
     getRefreshUser(persistedToken)
-      .then(() => {
-        dispatch(refreshUserSuccess());
+      .then((data) => {
+        dispatch(refreshUserSuccess(data));
       })
       .catch((error) => dispatch(refreshUserError(error)));
   }

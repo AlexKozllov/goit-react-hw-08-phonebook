@@ -2,6 +2,8 @@ import { combineReducers, createReducer } from "@reduxjs/toolkit";
 import {
   logoutError,
   logoutSuccess,
+  refreshUserError,
+  refreshUserSuccess,
   signInError,
   signInSuccess,
   signUpError,
@@ -18,6 +20,7 @@ const user = createReducer(
   {
     [signUpSuccess]: (state, action) => action.payload.user,
     [signInSuccess]: (state, action) => action.payload.user,
+    [refreshUserSuccess]: (state, action) => action.payload,
     [logoutSuccess]: (state, action) => initialUserState,
   }
 );
@@ -35,6 +38,8 @@ const error = createReducer(null, {
   [signInSuccess]: (state, action) => null,
   [logoutError]: (state, action) => action.payload,
   [logoutSuccess]: (state, action) => null,
+  [refreshUserError]: (state, action) => action.payload,
+  [refreshUserSuccess]: (state, action) => null,
 });
 
 const authRedusers = combineReducers({

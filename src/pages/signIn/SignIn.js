@@ -20,6 +20,7 @@ const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(signInUser({ ...dataSignIn }));
+    setDataSignIn({ ...initialState });
   };
 
   return (
@@ -39,7 +40,7 @@ const SignIn = () => {
           <input
             type="password"
             name="password"
-            value={dataSignIn.value}
+            value={dataSignIn.password}
             onChange={handleChange}
           />
         </label>

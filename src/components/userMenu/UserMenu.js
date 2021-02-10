@@ -4,7 +4,7 @@ import { logoutUser } from "../../redux/operations/authOperation";
 
 const UserMenu = () => {
   const curentToken = useSelector((state) => state.auth.token);
-
+  const userEmail = useSelector((state) => state.auth.user.email);
   const dispatch = useDispatch();
 
   const handleLogout = (e) => {
@@ -14,7 +14,7 @@ const UserMenu = () => {
 
   return (
     <div>
-      <h3>dsadsdsa@mail.com</h3>
+      <h3>{userEmail}</h3>
       <button type="submit" onClick={handleLogout}>
         Logaut
       </button>

@@ -24,6 +24,7 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(signUpUser({ ...dataSignUp }));
+    setDataSignUp({ ...initialState });
   };
   return (
     <div>
@@ -51,7 +52,7 @@ const SignUp = () => {
           <input
             type="password"
             name="password"
-            value={dataSignUp.value}
+            value={dataSignUp.password}
             onChange={handleChange}
           />
         </label>
