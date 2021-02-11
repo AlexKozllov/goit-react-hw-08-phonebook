@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import NavigationsLinks from "./navigations/NavigationsLinks";
 import NavigationsRouters from "./navigations/NavigationsRouters";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 import UserMenu from "./userMenu/UserMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "../redux/operations/authOperation";
@@ -18,7 +18,9 @@ const App = () => {
     <BrowserRouter>
       <NavigationsLinks />
       {isAuthenticated && <UserMenu />}
-      <NavigationsRouters />
+      <Switch>
+        <NavigationsRouters />
+      </Switch>
     </BrowserRouter>
   );
 };

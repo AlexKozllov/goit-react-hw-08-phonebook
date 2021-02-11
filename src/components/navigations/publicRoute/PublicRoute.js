@@ -7,13 +7,14 @@ const PublicRoute = ({ component: Component, ...routeProps }) => {
   return (
     <Route
       {...routeProps}
-      render={(props) =>
-        isAuthenticated && routeProps.restricted ? (
+      render={(props) => {
+        console.log("props", props);
+        return isAuthenticated && routeProps.restricted ? (
           <Redirect to="/contacts" />
         ) : (
           <Component {...props} />
-        )
-      }
+        );
+      }}
     />
   );
 };
