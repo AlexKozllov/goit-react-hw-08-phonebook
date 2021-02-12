@@ -26,7 +26,6 @@ const postSignUpUser = async (user) => {
 const postSignInUser = async (user) => {
   try {
     return await axios.post("/users/login", user).then(({ data }) => {
-      console.log("data", data);
       token.set(data.token);
       return data;
     });

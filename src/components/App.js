@@ -2,26 +2,24 @@ import React, { useEffect } from "react";
 
 import NavigationsLinks from "./navigations/NavigationsLinks";
 import NavigationsRouters from "./navigations/NavigationsRouters";
-import { BrowserRouter, Switch } from "react-router-dom";
 import UserMenu from "./userMenu/UserMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "../redux/operations/authOperation";
+import { getIsAuthenticated } from "../redux/selectors/authSelectors";
 
 const App = () => {
-  const isAuthenticated = useSelector((state) => state.auth.token);
+  const isAuthenticated = useSelector((state) => getIsAuthenticated(state));
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, []);
   return (
-    <BrowserRouter>
+    <>
       <NavigationsLinks />
       {isAuthenticated && <UserMenu />}
-      <Switch>
-        <NavigationsRouters />
-      </Switch>
-    </BrowserRouter>
+      <NavigationsRouters />
+    </>
   );
 };
 

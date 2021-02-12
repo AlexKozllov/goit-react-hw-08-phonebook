@@ -11,10 +11,11 @@ import ModalLoader from "../../components/loader/ModalLoader";
 import { getLoading } from "../../redux/selectors/contactsSelectors";
 import { getContactsList } from "../../redux/operations/phBookOperations";
 import { useHistory } from "react-router-dom";
+import { getIsAuthenticated } from "../../redux/selectors/authSelectors";
 
 const Contacts = () => {
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector((state) => !!state.auth.token);
+  const isAuthenticated = useSelector((state) => getIsAuthenticated(state));
   const isLoading = useSelector((state) => getLoading(state));
 
   const history = useHistory();

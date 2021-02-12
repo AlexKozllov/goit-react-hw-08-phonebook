@@ -1,14 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../redux/operations/authOperation";
+import {
+  getCurentToken,
+  getUserEmail,
+} from "../../redux/selectors/contactsSelectors";
 
 const UserMenu = () => {
-  const curentToken = useSelector((state) => state.auth.token);
-  const userEmail = useSelector((state) => state.auth.user.email);
+  const curentToken = useSelector((state) => getCurentToken(state));
+  const userEmail = useSelector((state) => getUserEmail(state));
   const dispatch = useDispatch();
 
   const handleLogout = (e) => {
-    console.log("curentToken", curentToken);
     dispatch(logoutUser(curentToken));
   };
 

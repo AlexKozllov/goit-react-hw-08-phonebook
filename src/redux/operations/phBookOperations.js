@@ -30,7 +30,6 @@ const getContactsList = () => (dispatch) => {
 
   getContacts()
     .then((data) => {
-      console.log("data", data);
       dispatch(getContactsSuccess(data));
     })
     .catch((error) => dispatch(getContactsError(error)));

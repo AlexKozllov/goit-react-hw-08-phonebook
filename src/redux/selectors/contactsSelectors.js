@@ -3,6 +3,8 @@ import { createSelector } from "@reduxjs/toolkit";
 const getLoading = (state) => state.loading;
 const getFilter = (state) => state.contacts.filter;
 const getListContacts = (state) => state.contacts.items;
+const getCurentToken = (state) => state.auth.token;
+const getUserEmail = (state) => state.auth.user.email;
 
 const getVisibleContacts = createSelector(
   [getListContacts, getFilter],
@@ -17,4 +19,11 @@ const getVisibleContacts = createSelector(
   }
 );
 
-export { getLoading, getFilter, getVisibleContacts, getListContacts };
+export {
+  getLoading,
+  getFilter,
+  getVisibleContacts,
+  getListContacts,
+  getCurentToken,
+  getUserEmail,
+};

@@ -24,7 +24,6 @@ const signUpUser = (user) => (dispatch) => {
 
   postSignUpUser(user)
     .then((data) => {
-      // console.log("data", data);
       dispatch(signUpSuccess(data));
     })
     .catch((error) => dispatch(signUpError(error)));
@@ -35,12 +34,9 @@ const signInUser = (user) => (dispatch) => {
 
   postSignInUser(user)
     .then((data) => {
-      // console.log("data", data);
       dispatch(signInSuccess(data));
     })
     .catch((error) => {
-      console.log("error554654654", error);
-
       dispatch(signInError(error));
     });
 };
