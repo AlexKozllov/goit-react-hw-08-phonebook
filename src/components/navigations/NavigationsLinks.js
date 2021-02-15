@@ -17,8 +17,8 @@ const NavigationsLinks = () => {
                   <NavLink
                     to={route.path}
                     exact={route.exect}
-                    className=""
-                    activeClassName=""
+                    className="navLink"
+                    activeClassName="activeNavLink"
                   >
                     {route.name}
                   </NavLink>
@@ -31,8 +31,8 @@ const NavigationsLinks = () => {
                   <NavLink
                     to={route.path}
                     exact={route.exect}
-                    className=""
-                    activeClassName=""
+                    className="navLink"
+                    activeClassName="activeNavLink"
                   >
                     {route.name}
                   </NavLink>
@@ -47,8 +47,8 @@ const NavigationsLinks = () => {
                   <NavLink
                     to={route.path}
                     exact={route.exect}
-                    className=""
-                    activeClassName=""
+                    className="navLink"
+                    activeClassName="activeNavLink"
                   >
                     {route.name}
                   </NavLink>

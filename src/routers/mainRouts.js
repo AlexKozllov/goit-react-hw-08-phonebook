@@ -4,7 +4,7 @@ export const mainRoutes = [
   {
     path: "/",
     name: "Home",
-    exect: true,
+    exact: true,
     component: lazy(() => import("../pages/home/Home")),
     private: false,
     restricted: false,
@@ -12,7 +12,7 @@ export const mainRoutes = [
   {
     path: "/register",
     name: "Register",
-    exect: true,
+    exact: true,
     component: lazy(() => import("../pages/signUp/SignUp")),
     private: false,
     restricted: true,
@@ -20,7 +20,7 @@ export const mainRoutes = [
   {
     path: "/login",
     name: "Login",
-    exect: true,
+    exact: true,
     component: lazy(() => import("../pages/signIn/SignIn")),
     private: false,
     restricted: true,
@@ -28,7 +28,7 @@ export const mainRoutes = [
   {
     path: "/contacts",
     name: "Contacts",
-    exect: true,
+    exact: true,
     component: lazy(() => import("../pages/contacts/Contacts")),
     private: true,
     restricted: true,
