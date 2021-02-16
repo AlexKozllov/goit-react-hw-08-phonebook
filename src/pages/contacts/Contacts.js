@@ -12,6 +12,7 @@ import { getLoading } from "../../redux/selectors/contactsSelectors";
 import { getContactsList } from "../../redux/operations/phBookOperations";
 import { useHistory } from "react-router-dom";
 import { getIsAuthenticated } from "../../redux/selectors/authSelectors";
+import UserMenu from "../../components/userMenu/UserMenu";
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,10 @@ const Contacts = () => {
           timeout={500}
           unmountOnExit
         >
-          <h1 className={s.headerPhoneboo}>Phonebook</h1>
+          <div className={s.container}>
+            <h1 className={s.headerPhoneboo}>Phonebook</h1>
+            {isAuthenticated && <UserMenu />}
+          </div>
         </CSSTransition>
         <ContactForm />
         <ContactList />

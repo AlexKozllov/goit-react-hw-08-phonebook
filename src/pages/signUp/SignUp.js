@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { signUpUser } from "../../redux/operations/authOperation";
 
-// import { postSignUpUser } from "../../servises/fatchToDB";
-// import { signUpUser } from "../../redux/operations/phBookOperations";
+import s from "./signUp.module.css";
 
 const initialState = {
   name: "",
@@ -28,7 +27,7 @@ const SignUp = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={s.form}>
         <label>
           Name
           <input
@@ -56,7 +55,9 @@ const SignUp = () => {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">SignUp</button>
+        <button type="submit" className={s.btn}>
+          SignUp
+        </button>
       </form>
     </div>
   );

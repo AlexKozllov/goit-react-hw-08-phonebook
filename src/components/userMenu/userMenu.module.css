@@ -1,0 +1,15 @@
+.container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn {
+    width: 80px;
+    height: 25px;
+    background-color: blue;
+    color: #fff;
+    font-size: 14px;
+}

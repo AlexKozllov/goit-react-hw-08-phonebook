@@ -1,0 +1,21 @@
+.navList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.navItem {
+    margin: 20px;
+}
+
+.navLink {
+    font-size: 18px;
+    color: blue;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.activeNavLink {
+    color: red;
+    text-decoration: underline;
+}

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { signInUser } from "../../redux/operations/authOperation";
 
+import s from "./signIn.module.css";
+
 const initialState = {
   email: "",
   password: "",
@@ -25,7 +27,7 @@ const SignIn = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={s.form}>
         <label>
           E-mail
           <input
@@ -44,7 +46,9 @@ const SignIn = () => {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">SignIn</button>
+        <button type="submit" className={s.btn}>
+          SignIn
+        </button>
       </form>
     </div>
   );

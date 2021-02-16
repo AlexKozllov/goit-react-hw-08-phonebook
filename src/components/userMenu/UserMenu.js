@@ -6,6 +6,8 @@ import {
   getUserEmail,
 } from "../../redux/selectors/contactsSelectors";
 
+import s from "./userMenu.module.css";
+
 const UserMenu = () => {
   const curentToken = useSelector((state) => getCurentToken(state));
   const userEmail = useSelector((state) => getUserEmail(state));
@@ -16,9 +18,9 @@ const UserMenu = () => {
   };
 
   return (
-    <div>
-      <h3>{userEmail}</h3>
-      <button type="submit" onClick={handleLogout}>
+    <div className={s.container}>
+      <h3 className={s.mail}>{userEmail}</h3>
+      <button type="submit" onClick={handleLogout} className={s.btn}>
         Logaut
       </button>
     </div>

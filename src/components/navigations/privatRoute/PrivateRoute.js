@@ -5,7 +5,6 @@ import { getIsAuthenticated } from "../../../redux/selectors/authSelectors";
 
 const PrivateRoute = ({ component: Component, ...routeProps }) => {
   const isAuthenticated = useSelector((state) => getIsAuthenticated(state));
-  console.log("routeProps", routeProps);
   return (
     <Route
       {...routeProps}
